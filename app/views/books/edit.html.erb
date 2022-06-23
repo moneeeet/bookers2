@@ -1,21 +1,34 @@
 <%= flash[:success]%>
-<h1>Editing Book</h1>
+
 <div>
   <% if @book.errors.any? %>
-  <%= @book.errors.count %> errors prohibited this obj from being saved:
+  <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
+<div class="container"></div>
+  <div class="row"></div>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto"></div>
+<h1>Editing Book</h1>
 
 <%= form_with model: @book do |f| %>
-  <label for="inputTitle">Title</label>
-  <%= f.text_field :title %>
-  <label for="inputOpinion">Opinion</label>
-  <%= f.text_field :body %>
-  <%= f.submit "Update Book" %>
-  <%= link_to "Show", user_path(user)%> |
+<div class="form-group">
+  <label for="inputTitle">Title</label> </br>
+  <%= f.text_field :title %> </br>
+</div>
+
+<div class="form-group">
+   <label for="inputOpinion">Opinion</label> </br>
+  <%= f.text_field :body %> </br>
+</div>
+
+<div class="form-group">
+  <%= f.submit "Update Book", class: "btn btn-success" %> </br>
+</div>
+
+  <%= link_to "Show", book_path(@book)%> |
   <%= link_to "Back", books_path%>
 <% end %>
